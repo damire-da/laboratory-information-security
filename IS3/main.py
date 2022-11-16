@@ -1,19 +1,22 @@
-from functions import encryption, decryption
+# -*- coding: cp1251 -*-
+
+from functions import encryption, decryption, reading, writing
+
 
 def start():
-    alpha = 'Р°Р±РІРіРґРµС‘Р¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С‡С€С‰СЊС‹СЉСЌСЋСЏ,. РђР‘Р’Р“Р”Р•РЃР–Р—РР™РљР›РњРќРћРџР РЎРўРЈР¤РҐР¦Р§РЁР©Р¬Р«РЄР­Р®РЇ!?:;'
+    alpha = 'абвгдеёжзийклмнопрстуфхцчшщьыъэюя,. АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ!?:;'
     Key = int(input("Enter key: "))
-    operation = input("Р’РІРµРґРёС‚Рµ 'С€' РґР»СЏ С€РёС„СЂРѕРІР°РЅРёСЏ, 'СЂ' РґР»СЏ СЂР°СЃС€РёС„СЂРѕРІР°РЅРёСЏ: ")
-    if operation == 'С€':
-        PlainText = input("Р’РІРµРґРёС‚Рµ С‚РµРєСЃС‚ РґР»СЏ С€РёС„СЂРѕРІР°РЅРёСЏ: ").strip()
+    operation = input("Введите 'ш' для шифрования, 'р' для расшифрования: ")
+    if operation == 'ш':
+        PlainText = reading()
         CipherText = encryption(Key, PlainText, alpha)
-        print("РЁРёС„СЂРѕС‚РµРєСЃС‚: " + CipherText)
-    elif operation == 'СЂ':
-        CipherText = input("Р’РІРµРґРёС‚Рµ С‚РµРєСЃС‚ РґР»СЏ СЂР°СЃС€РёС„СЂРѕРІР°РЅРёСЏ: ").strip()
+        writing(CipherText, operation)
+    elif operation == 'р':
+        CipherText = reading()
         PlainText = decryption(Key, CipherText, alpha)
-        print("РСЃС…РѕРґРЅС‹Р№ С‚РµРєСЃС‚: " + PlainText)
+        writing(PlainText, operation)
     else:
-        print("Р’С‹Р±СЂР°РЅР° РЅРµРІРµСЂРЅР°СЏ РѕРїРµСЂР°С†РёСЏ")
+        print("Выбрана неверная операция")
 
 
 if __name__ == '__main__':
