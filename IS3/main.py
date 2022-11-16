@@ -1,7 +1,7 @@
 from functions import encryption, decryption
 
 def start():
-    alpha = 'абвгдеёжзийклмнопрстуфхцчшщьыъэюя'
+    alpha = 'абвгдеёжзийклмнопрстуфхцчшщьыъэюя,. АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯ!?:;'
     Key = int(input("Enter key: "))
     operation = input("Введите 'ш' для шифрования, 'р' для расшифрования: ")
     if operation == 'ш':
